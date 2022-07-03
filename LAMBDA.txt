@@ -1,0 +1,11 @@
+FaaS service
+
+- Lambda is the primary serverless offering from Amazon, supporting a variety of languages.
+- You can create a function and you can literally type your code directly into the interface four AWS's cloud,
+  and then configure that function by providing the trigger.
+- Your application is going to be comprised of many differente FaaS functions, So you won't just write a single function
+  for your application, you'll have many functions and they'll have different triggers, but all of this depending on how your
+  application is going to be LAID OUT.
+- Some of the HIGHLIGHTS to Lambda in particular are that it does support several different languages, Integrated with
+  other AWS Products naturally for example API Gateway or API Proxy.
+
