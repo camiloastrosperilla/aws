@@ -98,3 +98,11 @@ ssh -i ~/.ssh/EffectiveDevOpsAWS.pem ec2-user@ec2-52-203-246-90.compute-1.amazon
 
 //INSTALL NODE.JS on EC2_INSTANCE
 sudo yum install --enablerepo=epel -y nodejs
+
+//TEST NODEJS APP
+node helloworld.js
+    //Server running
+    
+curl http://ec2-52-203-246-90.compute-1.amazonaws.com:3000/
+Hello World
+
