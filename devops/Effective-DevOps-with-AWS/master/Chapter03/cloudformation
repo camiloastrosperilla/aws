@@ -1,0 +1,9 @@
+# Recreating our Hello World example with Cloudformation
+DRY
+
+1. //Install Tropospehre to create a Python script for our template
+  pip install troposphere
+  
+  pip install -U setuptools
+  
+2. //Create and check the helloworld-cf-template.py
