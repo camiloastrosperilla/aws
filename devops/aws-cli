@@ -1,0 +1,70 @@
+- aws configure
+    //files: config, credentials
+
+//LISTAR USUARIOS 
+- aws iam list-users
+    //{
+            "Path": "/",
+            "UserName": "devops_user",
+            "UserId": "AIDAWKHPWVBIRDF3E2M2Y",
+            "Arn": "arn:aws:iam::434294401105:user/devops_user",
+            "CreateDate": "2022-08-23T01:38:06Z",
+            "PasswordLastUsed": "2022-08-23T01:52:12Z"
+        },
+        
+- aws ec2 describe-images  
+
+//IDENTIIFICAR VPC_ID
+- aws ec2 describe-vpcs
+    //{
+    "Vpcs": [
+        {
+            "CidrBlock": "172.31.0.0/16",
+            "DhcpOptionsId": "dopt-c5a7c0bf",
+            "State": "available",
+            "VpcId": "vpc-241ae059",
+            "OwnerId": "434294401105",
+            "InstanceTenancy": "default",
+            "CidrBlockAssociationSet": [
+                {
+                    "AssociationId": "vpc-cidr-assoc-623aed0d",
+                    "CidrBlock": "172.31.0.0/16",
+                    "CidrBlockState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "IsDefault": true
+        }
+    ]
+}
+
+//CREAR SECURITY GROUP
+- aws ec2 create-security-group \
+    --group-name HelloWorld \
+    --description "Hello World Demo" \
+    --vpc-id vpc-241ae059
+    
+    //{
+    "GroupId": "sg-0373ca5f3d46bbf4a"
+    }
+ 
+ //PERMITIR SOLO CONEXIONES DE ENTRADA POR PUERTO 22 Y 3000.
+
+aws ec2 authorize-security-group-ingress \
+> --group-name HelloWorld \
+> --protocol tcp \
+> --port 22 \
+> --cidr 0.0.0.0/0
+
+aws ec2 authorize-security-group-ingress \
+> --group-name HelloWorld \
+> --protocol tcp \
+> --port 3000 \
+> --cidr 0.0.0.0/0
+
+//VERIFY SECURITY_GROUP
+aws ec2 describe-security-groups \
+> --group-names HelloWorld \
+> --output text
+
